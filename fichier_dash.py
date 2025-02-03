@@ -4,6 +4,7 @@ import pandas as pd
 import dash_bootstrap_components as dbc
 import plotly.io as pio
 from dash_bootstrap_templates import load_figure_template
+import os
 
 # Load data
 url = "https://raw.githubusercontent.com/chriszapp/datasets/main/books.csv"
@@ -89,6 +90,6 @@ clientside_callback(
     Input("color-mode-switch", "value"), # Input from the switch
 )
 
-
+port = int(os.environ.get("PORT", 8050)) 
 if __name__ == '__main__':
     app.run_server(debug=True)
